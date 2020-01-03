@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 
 import "./App.css";
+import "./App.theme.css";
 
 const App = (props) => {
   const { searchQuery, sourcesDict, sourcesList } = props;
