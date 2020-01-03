@@ -1,6 +1,6 @@
-import sample from "./sample-site";
+import hackerNews from "./hacker-news";
 
-const ACTIVE_SOURCES = [sample];
+const ACTIVE_SOURCES = [hackerNews];
 
 const sources = {};
 for (let idx = 0; idx < ACTIVE_SOURCES.length; idx += 1) {

@@ -9,7 +9,7 @@ Tolon is a browser extension to help you find discussions around the pages you'r
 
 Available sources:
 
-- [Sample](src/sources/sample-site/index.jsx) (example source)
+- [Hacker News](https://news.ycombinator.com/) (social news)
 
 ## Installation
 
