@@ -1,0 +1,79 @@
+.header,
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.header:empty::after,
+.footer:empty::after {
+  /* Prevent element from collapsing */
+  content: '\200b';
+  padding: 6px 0;
+  visibility: hidden;
+}
+
+.header button,
+.footer button  {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 6px 0;
+}
+
+.header button:not(:first-child),
+.footer button:not(:first-child) {
+  margin-left: 8px;
+}
+
+.header button:disabled,
+.footer button:disabled {
+  opacity: 0.25;
+}
+
+.header button.active {
+  border-bottom: 3px solid;
+  padding-bottom: 3px;
+}
+
+.body {
+  max-height: 425px;
+  overflow-x: auto;
+  padding: 6px 10px;
+}
+
+.message {
+  padding: 18px 0;
+  text-align: center;
+  word-break: break-word;
+}
+
+.result {
+  padding: 6px 0;
+}
+
+.result-title {
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.result-url {
+  font-size: 12px;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+.result-meta {
+  display: flex;
+  font-size: 12px;
+}
+
+.result-meta > div:not(:first-child)::before {
+  content: '|';
+  margin: 0 4px;
+}
