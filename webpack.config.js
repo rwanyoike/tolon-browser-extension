@@ -1,9 +1,13 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+const HtmlBeautifyPlugin = require("html-beautify-webpack-plugin");
+const HtmlWebpackDeployPlugin = require("html-webpack-deploy-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+
+const external = require("./external");
 
 if (!process.env.NODE_ENV) {
   // eslint-disable-next-line no-console
@@ -71,6 +75,17 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
+    }),
+    new HtmlWebpackDeployPlugin({
+      packages: external,
+    }),
+    new HtmlBeautifyPlugin({
+      config: {
+        indent_size: 2,
+        html: {
+          indent_inner_html: false,
+        },
+      },
     }),
     new CopyPlugin([{ from: "public", to: "" }]),
     new FriendlyErrorsWebpackPlugin({}),
