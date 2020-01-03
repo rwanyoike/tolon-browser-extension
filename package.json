@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
