@@ -6,8 +6,10 @@ const HtmlWebpackDeployPlugin = require("html-webpack-deploy-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const ZipPlugin = require("zip-webpack-plugin");
 
 const external = require("./external");
+const manifest = require("./public/manifest.json");
 
 if (!process.env.NODE_ENV) {
   // eslint-disable-next-line no-console
@@ -89,6 +91,9 @@ const config = {
     }),
     new CopyPlugin([{ from: "public", to: "" }]),
     new FriendlyErrorsWebpackPlugin({}),
+    new ZipPlugin({
+      filename: `${manifest.name}-v${manifest.version}.zip`,
+    }),
   ],
   optimization: {
     runtimeChunk: "single",
