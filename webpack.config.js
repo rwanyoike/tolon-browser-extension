@@ -66,6 +66,13 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.woff2?$/,
+        loader: "file-loader",
+        options: {
+          name: "static/fonts/[name].[ext]",
+        },
+      },
     ],
   },
   plugins: [

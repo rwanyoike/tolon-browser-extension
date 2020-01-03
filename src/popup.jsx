@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import browser from "webextension-polyfill";
 
 import "normalize.css";
+import "typeface-source-sans-pro";
 import "./popup.css";
 
 import App from "./App";
