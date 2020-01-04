@@ -12,9 +12,15 @@ import sources from "./sources";
 (async () => {
   const queryInfo = { active: true, currentWindow: true };
   const tabs = await browser.tabs.query(queryInfo);
+  // See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
+  const urlPattern = /(http|https):\/\//;
   let searchQuery = null;
-  if (tabs.length) {
-    searchQuery = tabs[0].url;
+  if (tabs.length && urlPattern.test(tabs[0].url)) {
+    const { host, pathname, search } = new URL(tabs[0].url);
+    // Don't include the URL scheme or hash. They filter inexact results
+    // TODO(sources): This will break hash-navigated webpage results? Move
+    // check to the source handleSearch() functions?
+    searchQuery = `${host}${pathname}${search}`;
   }
   const element = (
     <App
