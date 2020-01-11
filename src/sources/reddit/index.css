@@ -3,3 +3,9 @@
   --header-border-color: hsl(206, 100%, 41%);
   --result-points-color: hsl(206, 100%, 41%);
 }
+
+.app[data-source="Reddit"][data-dark-mode="true"] {
+  --header-background-color: hsla(203, 100%, 65%, 0.15);
+  --header-border-color: hsl(203, 100%, 65%);
+  --result-points-color: hsl(203, 100%, 65%);
+}

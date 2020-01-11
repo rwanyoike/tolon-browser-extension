@@ -21,7 +21,7 @@ const Result = (props) => {
             - If `url` is set, wrap `text` in an anchor element
             - If `url` is not set, wrap `text` in a span element */}
         {meta.map((value) => (
-          <div key={value.item} className={`result-${value.item}`}>
+          <div className={`result-${value.item}`} key={value.item}>
             {value.url ? (
               <a
                 href={value.url}

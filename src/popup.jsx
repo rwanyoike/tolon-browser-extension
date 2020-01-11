@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import browser from "webextension-polyfill";
 
 import "normalize.css";
-import "typeface-source-sans-pro";
 import "./popup.css";
 
 import App from "./App";
@@ -17,15 +16,16 @@ import sources from "./sources";
   let searchQuery = null;
   if (tabs.length && urlPattern.test(tabs[0].url)) {
     const { host, pathname, search } = new URL(tabs[0].url);
-    // Don't include the URL scheme or hash. They filter inexact results
-    // TODO(sources): This will break hash-navigated webpage results? Move
-    // check to the source handleSearch() functions?
+    // Don't include the URL scheme or hash. They filter-out results. This will
+    // break hash-navigated webpage results.
     searchQuery = `${host}${pathname}${search}`;
   }
   const element = (
     <App
+      initOptions={await browser.storage.local.get()}
+      onOptionsChange={await browser.storage.local.set}
       searchQuery={searchQuery}
-      sourcesDict={sources}
+      sources={sources}
       sourcesList={Object.keys(sources)}
     />
   );

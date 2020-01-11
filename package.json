@@ -3,7 +3,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "test": "eslint --ext .js,.jsx ."
+    "lint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -23,7 +23,6 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "file-loader": "^5.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-beautify-webpack-plugin": "^1.0.5",
     "html-webpack-deploy-plugin": "^2.0.6",
@@ -41,7 +40,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "typeface-source-sans-pro": "^0.0.75",
     "webextension-polyfill": "^0.6.0"
   }
 }

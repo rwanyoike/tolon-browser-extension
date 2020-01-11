@@ -66,13 +66,6 @@ const config = {
           },
         ],
       },
-      {
-        test: /\.woff2?$/,
-        loader: "file-loader",
-        options: {
-          name: "static/fonts/[name].[ext]",
-        },
-      },
     ],
   },
   plugins: [
@@ -80,13 +73,14 @@ const config = {
       cleanOnceBeforeBuildPatterns: ["**/*", "!.gitkeep"],
     }),
     new MiniCssExtractPlugin({
-      filename: "static/css/[name]-[contenthash].css",
+      filename: "css/[name]-[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
     new HtmlWebpackDeployPlugin({
       packages: external,
+      addPackagesPath: (packagePath) => path.join("external", packagePath),
     }),
     new HtmlBeautifyPlugin({
       config: {
