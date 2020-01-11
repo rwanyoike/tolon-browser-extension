@@ -21,12 +21,7 @@
   color: inherit;
   cursor: pointer;
   font: inherit;
-  padding: 6px 0;
-}
-
-.header button:not(:first-child),
-.footer button:not(:first-child) {
-  margin-left: 8px;
+  padding: 0;
 }
 
 .header button:disabled,
@@ -34,46 +29,73 @@
   opacity: 0.25;
 }
 
-.header button.active {
+.header .sources > div,
+.footer .pager > div {
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.header .sources > div:not(:first-child),
+.footer .pager > div:not(:first-child) {
+  margin-left: 8px;
+}
+
+.header .options,
+.footer .hits {
+  padding: 6px 0;
+}
+
+.header .sources .active {
   border-bottom: 3px solid;
   padding-bottom: 3px;
 }
 
 .body {
-  max-height: 425px;
+  height: 425px;
   overflow-x: auto;
   padding: 6px 10px;
 }
 
-.message {
+.body .message {
   padding: 18px 0;
   text-align: center;
   word-break: break-word;
 }
 
-.result {
+.body .result {
   padding: 6px 0;
 }
 
-.result-title {
+.body .result-title {
   font-size: 16px;
   margin: 0 0 4px;
 }
 
-.result-url {
+.body .result-url {
   font-size: 12px;
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre;
 }
 
-.result-meta {
-  display: flex;
+.body .result-meta {
   font-size: 12px;
 }
 
-.result-meta > div:not(:first-child)::before {
+.body .result-meta > div {
+  display: inline-block;
+  margin: 2px 0 0;
+}
+
+.body .result-meta > div:not(:first-child)::before {
   content: '|';
   margin: 0 4px;
+}
+
+.body .setting {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
 }

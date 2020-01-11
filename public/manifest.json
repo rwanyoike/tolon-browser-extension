@@ -1,21 +1,18 @@
 {
   "manifest_version": 2,
   "name": "Tolon",
-  "version": "0.2.0",
-  "description": "Find page related website discussions.",
+  "version": "0.3.0",
+  "description": "Find page related website discussions. On Hacker News and Reddit.",
   "homepage_url": "https://github.com/rwanyoike/tolon",
   "icons": {
-    "48": "images/icon48.png",
-    "64": "images/icon64.png",
-    "96": "images/icon96.png",
-    "128": "images/icon128.png",
-    "192": "images/icon192.png",
-    "256": "images/icon256.png"
+    "64": "images/icon.png",
+    "128": "images/icon@2x.png"
   },
   "browser_action": {
     "default_popup": "index.html"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ]
 }

@@ -1,5 +1,5 @@
 .app {
-  --application-background-color: #f8f9fa;
+  --application-background-color: #ffffff;
   --application-color: hsl(0, 0%, 40%); /* 60% */
   --header-footer-box-shadow-color-hsl: 206, 6%, 25%;
   --header-background-color: hsla(0, 0%, 0%, 0.15);
@@ -12,8 +12,24 @@
   --result-link-color: hsl(0, 0%, 62%); /* 38% */
   --result-meta-color: hsl(0, 0%, 40%); /* 60% */
   --result-points-color: var(--result-meta-color);
+
   background-color: var(--application-background-color);
   color: var(--application-color);
+}
+
+.app[data-dark-mode="true"] {
+  --application-background-color: #202124;
+  --application-color: hsl(0, 0%, 60%); /* 60% */
+  --header-footer-box-shadow-color-hsl: 0, 0%, 0%;
+  --header-background-color: hsla(0, 0%, 100%, 0.15);
+  --header-border-color: hsla(0, 0%, 100%, 0.1);
+  --header-color: hsl(0, 0%, 100%);
+  --footer-background-color: initial;
+  --footer-background-image: linear-gradient(rgba(255, 255, 255, .04), rgba(255, 255, 255, .04));
+  --footer-color: hsl(0, 0%, 100%);
+  --result-title-color: hsl(0, 0%, 87%); /* 87% */
+  --result-link-color: hsl(0, 0%, 38%); /* 38% */
+  --result-meta-color: hsl(0, 0%, 60%); /* 60% */
 }
 
 .header {
@@ -23,7 +39,7 @@
   color: var(--header-color);
 }
 
-.header button.active {
+.header .sources .active {
   border-bottom-color: var(--header-border-color);
 }
 
@@ -31,19 +47,15 @@
   color: var(--result-link-color);
 }
 
-.result-title a {
+.body .result-title a {
   color: var(--result-title-color);
 }
 
-.result-url a {
-  color: var(--result-link-color);
-}
-
-.result-meta a {
+.body .result-meta a {
   color: var(--result-meta-color);
 }
 
-.result-points {
+.body .result-points {
   color: var(--result-points-color);
 }
 
@@ -52,9 +64,5 @@
   background-image: var(--footer-background-image);
   box-shadow: hsla(var(--header-footer-box-shadow-color-hsl), .3) 0 0px 2px 0,
               hsla(var(--header-footer-box-shadow-color-hsl), .15) 0 0px 3px 1px;
-  color: var(--footer-color);
-}
-
-.footer a {
   color: var(--footer-color);
 }
