@@ -48,9 +48,9 @@ Result.propTypes = {
 };
 
 const Body = (props) => {
-  const { pageResults, searchError, searchQuery } = props;
+  const { error, query, results } = props;
 
-  if (!searchQuery) {
+  if (!query) {
     return (
       <div className="message">
         <div style={{ marginBottom: "10px" }}>
@@ -62,25 +62,25 @@ const Body = (props) => {
     );
   }
 
-  if (searchError) {
-    return <div className="message">{searchError.message}</div>;
+  if (error) {
+    return <div className="message">{error.message}</div>;
   }
 
-  if (!pageResults) {
+  if (!results) {
     return <div className="message">...</div>;
   }
 
-  if (!pageResults.length) {
+  if (!results.length) {
     return (
       <div className="message">
-        Found no <b>threads</b> matching <b>{searchQuery}</b>
+        Found no <b>threads</b> matching <b>{query}</b>
       </div>
     );
   }
 
   return (
     <div className="results">
-      {pageResults.map((value) => (
+      {results.map((value) => (
         <Result
           key={value.id}
           meta={value.meta}
@@ -93,15 +93,15 @@ const Body = (props) => {
 };
 
 Body.propTypes = {
-  pageResults: PropTypes.arrayOf(PropTypes.object),
-  searchError: PropTypes.instanceOf(Error),
-  searchQuery: PropTypes.string,
+  error: PropTypes.instanceOf(Error),
+  query: PropTypes.string,
+  results: PropTypes.arrayOf(PropTypes.object),
 };
 
 Body.defaultProps = {
-  pageResults: undefined,
-  searchError: null,
-  searchQuery: null,
+  error: null,
+  query: null,
+  results: undefined,
 };
 
 export default Body;

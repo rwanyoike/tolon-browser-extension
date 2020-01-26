@@ -9,13 +9,13 @@
 .header:empty::after,
 .footer:empty::after {
   /* Prevent element from collapsing */
-  content: '\200b';
+  content: "\200b";
   padding: 6px 0;
   visibility: hidden;
 }
 
 .header button,
-.footer button  {
+.footer button {
   background: none;
   border: none;
   color: inherit;
@@ -67,12 +67,12 @@
 }
 
 .body .result-title {
-  font-size: 16px;
+  font-size: 1rem; /* 16px */
   margin: 0 0 4px;
 }
 
 .body .result-url {
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px */
   margin: 0 0 2px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,7 +80,7 @@
 }
 
 .body .result-meta {
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px */
 }
 
 .body .result-meta > div {
@@ -89,7 +89,7 @@
 }
 
 .body .result-meta > div:not(:first-child)::before {
-  content: '|';
+  content: "|";
   margin: 0 4px;
 }
 
