@@ -23,6 +23,7 @@ async function handleSearch(url, session) {
   const response = await ky
     .get(`${SEARCH_URL}/api/v1/search`, {
       searchParams,
+      retry: 1,
       timeout: 10000, // 10s
     })
     .json();

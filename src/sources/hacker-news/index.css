@@ -1,7 +1,7 @@
 .app[data-source="Hacker News"] {
   --header-background-color: hsla(19, 87%, 55%, 0.15);
   --header-border-color: hsl(19, 87%, 55%);
-  --result-points-color: hsl(19, 87%, 55%);
+  --result-points-text-color: hsl(19, 87%, 55%);
 }
 
 .app[data-source="Hacker News"][data-dark-mode="true"] {

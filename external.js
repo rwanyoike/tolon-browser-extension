@@ -1,14 +1,16 @@
-let packages;
-
-if (process.env.NODE_ENV === "development") {
-  packages = {
-    ky: {
-      copy: [{ from: "umd.js", to: "/" }],
-      scripts: {
-        variableName: "ky",
-        path: "umd.js",
-      },
+let packages = {
+  ky: {
+    copy: [{ from: "umd.js", to: "/" }],
+    scripts: {
+      variableName: "ky",
+      path: "umd.js",
     },
+  },
+};
+
+if (process.env.NODE_ENV !== "production") {
+  packages = {
+    ...packages,
     "prop-types": {
       copy: [{ from: "prop-types.js", to: "/" }],
       scripts: {
@@ -38,17 +40,9 @@ if (process.env.NODE_ENV === "development") {
       },
     },
   };
-}
-
-if (process.env.NODE_ENV === "production") {
+} else {
   packages = {
-    ky: {
-      copy: [{ from: "umd.js", to: "/" }],
-      scripts: {
-        variableName: "ky",
-        path: "umd.js",
-      },
-    },
+    ...packages,
     "prop-types": {
       copy: [{ from: "prop-types.min.js", to: "/" }],
       scripts: {

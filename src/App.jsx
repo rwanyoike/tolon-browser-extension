@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { initStore, initIsLoading } from "./utils";
 
 import Header from "./components/Header";
 import Options from "./components/Options";
@@ -10,52 +11,44 @@ import "./App.css";
 import "./App.theme.css";
 
 const App = (props) => {
-  const {
-    initOptions,
-    onOptionsChange,
-    searchQuery,
-    sources,
-    sourcesList,
-  } = props;
+  const { prevOptions, query, sources, src } = props;
 
-  const [currentSource, setCurrentSource] = useState(sourcesList[0]);
-  const [store, setStore] = useState(() => {
-    const state = {};
-    for (let idx = 0; idx < sourcesList.length; idx += 1) {
-      state[sourcesList[idx]] = {
-        results: {}, // result pages => list
-        hits: "∞", // search hits
-        lazyPageCount: 1, // lazy page count
-        pageIndex: 0, // current page
-        session: {}, // source session
-      };
-    }
-    return state;
-  });
+  // Current active source
+  const [currentSource, setCurrentSource] = useState(sources[0]);
+  // Layered object {[source]: {...}}
+  const [store, setStore] = useState(() => initStore(sources));
+  // Raised handleSearch error
   const [error, setError] = useState(null);
+  // Layered object {[source]: bool }
+  const [isLoading, setIsLoading] = useState(() => initIsLoading(sources));
+  // Extension options
+  const [options, setOptions] = useState(prevOptions);
+  // Show the extension options
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState(() => {
-    if ({}.hasOwnProperty.call(initOptions, "darkMode")) {
-      return initOptions;
-    }
-    return { darkMode: false };
-  });
 
   const sourceStore = store[currentSource];
-  const pageResults = sourceStore.results[sourceStore.pageIndex];
 
   useEffect(() => {
     setError(null);
 
-    // A non-http or src cached page
-    if (!searchQuery || pageResults) {
+    // A non-http, loading, or cached page
+    if (
+      !query ||
+      isLoading[currentSource] ||
+      sourceStore.results[sourceStore.pageIndex]
+    ) {
       return;
     }
 
+    setIsLoading((prevValue) => ({
+      ...prevValue,
+      [currentSource]: true,
+    }));
+
     (async () => {
       try {
-        const { handleSearch } = sources[currentSource];
-        const response = await handleSearch(searchQuery, sourceStore.session);
+        const { handleSearch } = src[currentSource];
+        const response = await handleSearch(query, sourceStore.session);
         const { results, hits, hasNext, session } = response;
         sourceStore.results[sourceStore.pageIndex] = results;
         sourceStore.hits = hits;
@@ -63,37 +56,39 @@ const App = (props) => {
           sourceStore.lazyPageCount += 1;
         }
         sourceStore.session = session;
-        setStore((prevStore) => ({
-          ...prevStore,
+        setStore((prevValue) => ({
+          ...prevValue,
           [currentSource]: sourceStore,
         }));
       } catch (error_) {
         setError(error_);
       }
+
+      setIsLoading((prevValue) => ({
+        ...prevValue,
+        [currentSource]: false,
+      }));
     })();
   }, [currentSource, store]);
 
   const handleIndexChange = (change) => {
     sourceStore.pageIndex += change;
-    setStore((prevStore) => ({
-      ...prevStore,
+    setStore((prevValue) => ({
+      ...prevValue,
       [currentSource]: sourceStore,
     }));
   };
 
-  const handleShowOptions = () => {
-    setShowOptions((prevShowOptions) => !prevShowOptions);
-  };
-
   const handleOptionsSave = (key, value) => {
-    setOptions((prevOptions) => {
-      const newSettings = {
-        ...prevOptions,
+    (async () => {
+      if (typeof browser === "object") {
+        await browser.storage.local.set({ [key]: value });
+      }
+      setOptions((prevValue) => ({
+        ...prevValue,
         [key]: value,
-      };
-      onOptionsChange(newSettings);
-      return newSettings;
-    });
+      }));
+    })();
   };
 
   return (
@@ -104,41 +99,42 @@ const App = (props) => {
     >
       <div className="header">
         {showOptions ? (
-          <Header
-            currentSource=""
-            onShowOptions={handleShowOptions}
-            onSourceChange={() => {}}
-            sourcesList={[]}
-          />
+          <div />
         ) : (
           <Header
-            currentSource={currentSource}
-            onShowOptions={handleShowOptions}
             onSourceChange={setCurrentSource}
-            sourcesList={sourcesList}
+            currentSource={currentSource}
+            sources={sources}
           />
         )}
+        <div className="options">
+          <button
+            onClick={() => setShowOptions((prevValue) => !prevValue)}
+            title="Show Options"
+            type="button"
+          >
+            [ ? ]
+          </button>
+        </div>
       </div>
-
       <div className="body">
         {showOptions ? (
           <Options onOptionsChange={handleOptionsSave} options={options} />
         ) : (
           <Body
-            pageResults={pageResults}
-            searchError={error}
-            searchQuery={searchQuery}
+            error={error}
+            query={query}
+            results={sourceStore.results[sourceStore.pageIndex]}
           />
         )}
       </div>
-
       <div className="footer">
         {!showOptions && (
           <Footer
-            hits={sourceStore.hits.toString()}
             onIndexChange={handleIndexChange}
-            pageCount={sourceStore.lazyPageCount}
-            pageIndex={sourceStore.pageIndex}
+            count={sourceStore.lazyPageCount}
+            hits={sourceStore.hits.toString()}
+            index={sourceStore.pageIndex}
           />
         )}
       </div>
@@ -147,15 +143,14 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  initOptions: PropTypes.objectOf(PropTypes.any).isRequired,
-  onOptionsChange: PropTypes.func.isRequired,
-  searchQuery: PropTypes.string,
-  sources: PropTypes.objectOf(PropTypes.object).isRequired,
-  sourcesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  prevOptions: PropTypes.objectOf(PropTypes.any).isRequired,
+  query: PropTypes.string,
+  sources: PropTypes.arrayOf(PropTypes.string).isRequired,
+  src: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 App.defaultProps = {
-  searchQuery: null,
+  query: null,
 };
 
 export default App;

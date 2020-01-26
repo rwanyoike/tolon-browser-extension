@@ -1,27 +1,27 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-const HtmlBeautifyPlugin = require("html-beautify-webpack-plugin");
 const HtmlWebpackDeployPlugin = require("html-webpack-deploy-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
 const ZipPlugin = require("zip-webpack-plugin");
+
+require("dotenv").config();
 
 const external = require("./external");
 const manifest = require("./public/manifest.json");
 
 if (!process.env.NODE_ENV) {
-  // eslint-disable-next-line no-console
-  console.error("NODE_ENV environment variable has not been set.");
-  process.exit(1);
+  throw new Error(
+    "The NODE_ENV environment variable is required but was not specified.",
+  );
 }
 
-const config = {
+let config = {
   mode: process.env.NODE_ENV,
-  entry: {
-    popup: "./src/popup.jsx",
-  },
+  entry: "./src/popup.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name]-[contenthash].js",
@@ -75,20 +75,22 @@ const config = {
     new MiniCssExtractPlugin({
       filename: "css/[name]-[contenthash].css",
     }),
+    new OptimizeCssAssetsPlugin({}),
     new HtmlWebpackPlugin({
       template: "src/index.html",
+      // Ref: https://github.com/jantimon/html-webpack-plugin/issues/1094
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+      },
     }),
     new HtmlWebpackDeployPlugin({
       packages: external,
       addPackagesPath: (packagePath) => path.join("external", packagePath),
-    }),
-    new HtmlBeautifyPlugin({
-      config: {
-        indent_size: 2,
-        html: {
-          indent_inner_html: false,
-        },
-      },
     }),
     new CopyPlugin([{ from: "public", to: "" }]),
     new FriendlyErrorsWebpackPlugin({}),
@@ -101,15 +103,17 @@ const config = {
   },
 };
 
-module.exports = config;
-
-if (process.env.NODE_ENV === "development") {
-  module.exports = {
+if (process.env.NODE_ENV !== "production") {
+  config = {
     ...config,
     devtool: "cheap-source-map",
-    // Ref: https://github.com/geowarin/friendly-errors-webpack-plugin#turn-off-errors
     devServer: {
+      host: "0.0.0.0",
+      port: 3000,
+      // Ref: https://github.com/geowarin/friendly-errors-webpack-plugin#turn-off-errors
       quiet: true,
     },
   };
 }
+
+module.exports = config;
