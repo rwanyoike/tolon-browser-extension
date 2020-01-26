@@ -4,6 +4,7 @@
 [![GitHub](https://img.shields.io/github/license/rwanyoike/tolon)](LICENSE)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
 [![Mozilla Add-on](https://img.shields.io/amo/v/tolon)](https://addons.mozilla.org/en-US/firefox/addon/tolon/)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 > Find page related website discussions. On Hacker News and Reddit.
 
@@ -59,8 +60,8 @@ You can install the latest version [manually](https://github.com/rwanyoike/tolon
 ```shell
 $ git clone https://github.com/rwanyoike/tolon
 $ cd tolon
-$ yarn install
-$ NODE_ENV=production yarn build
+$ npm install
+$ NODE_ENV=development npm run build
 ```
 
 Find the compiled browser extension under `dist/`.

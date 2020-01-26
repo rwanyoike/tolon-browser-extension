@@ -1,42 +1,40 @@
 .app {
-  --application-background-color: #ffffff;
-  --application-color: hsl(0, 0%, 40%); /* 60% */
-  --header-footer-box-shadow-color-hsl: 206, 6%, 25%;
+  --primary-background-color: hsl(0, 0%, 100%);
+  --primary-text-color: hsl(210, 0%, 10%);
+  --body-link-color: hsl(208, 0%, 36%);
   --header-background-color: hsla(0, 0%, 0%, 0.15);
   --header-border-color: hsla(0, 0%, 0%, 0.1);
-  --header-color: hsl(0, 0%, 0%);
-  --footer-background-color: #ffffff;
+  --header-footer-box-shadow-color-hsl: 206, 6%, 25%;
+  --footer-background-color: hsl(0, 0%, 100%);
   --footer-background-image: initial;
-  --footer-color: hsl(0, 0%, 0%);
-  --result-title-color: hsl(0, 0%, 13%); /* 87% */
-  --result-link-color: hsl(0, 0%, 62%); /* 38% */
-  --result-meta-color: hsl(0, 0%, 40%); /* 60% */
-  --result-points-color: var(--result-meta-color);
+  --result-points-text-color: var(--result-meta-link-color);
+  --result-title-link-color: var(--primary-text-color);
+  --result-url-link-color: hsl(208, 0%, 56%);
 
-  background-color: var(--application-background-color);
-  color: var(--application-color);
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
 }
 
 .app[data-dark-mode="true"] {
-  --application-background-color: #202124;
-  --application-color: hsl(0, 0%, 60%); /* 60% */
-  --header-footer-box-shadow-color-hsl: 0, 0%, 0%;
+  --primary-background-color: hsl(0, 0%, 12%);
+  --primary-text-color: hsl(0, 0%, 80%);
+  --body-link-color: hsl(208, 0%, 56%);
   --header-background-color: hsla(0, 0%, 100%, 0.15);
   --header-border-color: hsla(0, 0%, 100%, 0.1);
-  --header-color: hsl(0, 0%, 100%);
+  --header-footer-box-shadow-color-hsl: 0, 0%, 0%;
   --footer-background-color: initial;
-  --footer-background-image: linear-gradient(rgba(255, 255, 255, .04), rgba(255, 255, 255, .04));
-  --footer-color: hsl(0, 0%, 100%);
-  --result-title-color: hsl(0, 0%, 87%); /* 87% */
-  --result-link-color: hsl(0, 0%, 38%); /* 38% */
-  --result-meta-color: hsl(0, 0%, 60%); /* 60% */
+  --footer-background-image: linear-gradient(
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04)
+  );
+  --result-title-link-color: var(--primary-text-color);
+  --result-url-link-color: hsl(208, 0%, 36%);
 }
 
 .header {
   background-color: var(--header-background-color);
-  box-shadow: hsla(var(--header-footer-box-shadow-color-hsl), .3) 0 1px 2px 0,
-              hsla(var(--header-footer-box-shadow-color-hsl), .15) 0 1px 3px 1px;
-  color: var(--header-color);
+  box-shadow: hsla(var(--header-footer-box-shadow-color-hsl), 0.3) 0 1px 2px 0,
+    hsla(var(--header-footer-box-shadow-color-hsl), 0.15) 0 1px 3px 1px;
 }
 
 .header .sources .active {
@@ -44,25 +42,28 @@
 }
 
 .body a {
-  color: var(--result-link-color);
+  color: var(--body-link-color);
 }
 
 .body .result-title a {
-  color: var(--result-title-color);
+  color: var(--result-title-link-color);
 }
 
-.body .result-meta a {
-  color: var(--result-meta-color);
+.body .result-url a {
+  color: var(--result-url-link-color);
 }
 
 .body .result-points {
-  color: var(--result-points-color);
+  color: var(--result-points-text-color);
+}
+
+.body .setting small {
+  color: var(--body-link-color);
 }
 
 .footer {
   background-color: var(--footer-background-color);
   background-image: var(--footer-background-image);
-  box-shadow: hsla(var(--header-footer-box-shadow-color-hsl), .3) 0 0px 2px 0,
-              hsla(var(--header-footer-box-shadow-color-hsl), .15) 0 0px 3px 1px;
-  color: var(--footer-color);
+  box-shadow: hsla(var(--header-footer-box-shadow-color-hsl), 0.3) 0 0px 2px 0,
+    hsla(var(--header-footer-box-shadow-color-hsl), 0.15) 0 0px 3px 1px;
 }

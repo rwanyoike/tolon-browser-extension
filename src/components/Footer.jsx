@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Footer = (props) => {
-  const { hits, onIndexChange, pageCount, pageIndex } = props;
+  const { onIndexChange, count, hits, index } = props;
 
   return (
     <>
       <div className="pager">
         <div>
           <button
-            disabled={pageIndex <= 0}
+            disabled={index <= 0}
             onClick={() => onIndexChange(-1)}
             type="button"
           >
@@ -18,7 +18,7 @@ const Footer = (props) => {
         </div>
         <div>
           <button
-            disabled={pageIndex + 1 >= pageCount}
+            disabled={index + 1 >= count}
             onClick={() => onIndexChange(+1)}
             type="button"
           >
@@ -32,10 +32,10 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  hits: PropTypes.string.isRequired,
   onIndexChange: PropTypes.func.isRequired,
-  pageCount: PropTypes.number.isRequired,
-  pageIndex: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
+  hits: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default Footer;

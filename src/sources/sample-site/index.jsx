@@ -1,5 +1,6 @@
 /**
- * The search function queries a source for page discussions.
+ * A search function to query for page discussions.
+ *
  * @param {string} url - The page url to query.
  * @param {object} session - The source session.
  * @return {object} { `results`, `hits`, `hasNext`, and `session` }
@@ -10,18 +11,19 @@ async function handleSearch(url, session) {
   const searchParams = new URLSearchParams();
   searchParams.set("query", url);
   searchParams.set("sort", "top");
-  // Use 'session' to pass context between function calls
+  // Use 'session' to pass context between calls
   if ({}.hasOwnProperty.call(session, "page")) {
     searchParams.set("page", session.page + 1);
   }
 
-  // Call the search API with a timeout
+  // Example call to a search API, with a timeout
   // const response = await FETCH
   //   .get("https://www.example.com/api/search", {
   //     searchParams,
   //     timeout: 10000, // 10s
   //   });
 
+  // Example response from a search API
   const response = {
     itemCount: 2,
     page: 1,
@@ -47,7 +49,7 @@ async function handleSearch(url, session) {
   };
 
   const { items } = response;
-  // Loop through the response, creating results
+  // Loop through a response, creating 'results'
   for (let idx = 0; idx < items.length; idx += 1) {
     const result = items[idx];
     results.push({
@@ -80,7 +82,6 @@ async function handleSearch(url, session) {
   };
 }
 
-// Export the source name, and search function
 export default {
   name: "Sample",
   handleSearch,

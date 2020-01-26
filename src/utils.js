@@ -66,3 +66,25 @@ export const timeAgo = (() => {
     return render(Math.round(elapsed / modifier));
   };
 })();
+
+export const initStore = (sources) => {
+  const state = {};
+  for (let idx = 0; idx < sources.length; idx += 1) {
+    state[sources[idx]] = {
+      results: {}, // page results => list
+      hits: "∞", // search hits
+      lazyPageCount: 1, // lazy page count
+      pageIndex: 0, // current page
+      session: {}, // source session
+    };
+  }
+  return state;
+};
+
+export const initIsLoading = (sources) => {
+  const state = {};
+  for (let idx = 0; idx < sources.length; idx += 1) {
+    state[sources[idx]] = false; // busy
+  }
+  return state;
+};
