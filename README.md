@@ -12,7 +12,7 @@ Tolon is a browser extension to help you find discussions around the pages you'r
 
 ![_](https://i.imgur.com/cWbFOKD.png)
 
-While viewing a webpage, invoking Tolon will have it _query the page URL_ and present a list of results to discussion threads.
+While viewing a webpage, invoking Tolon will have it _query the page URL_ against available sources and present a list of results to discussion threads.
 
 Available sources:
 
@@ -21,7 +21,7 @@ Available sources:
 
 ## Installation
 
-Tolon is mostly JavaScript plus a little CSS. There are no trackers. No data is sent (aside from the URL query) or shared. All of the code can be inspected here on GitHub.
+Tolon is mostly JavaScript plus a little CSS. There are no trackers. No data is sent (aside from the page URL query) or shared. All of the code can be inspected here on GitHub.
 
 These are Tolon's permissions:
 
@@ -41,7 +41,7 @@ This is necessary to be able to:
 
 storage:
 
-This is used to persist extension's settings.
+This is used to persist the extension settings.
 
 ### Chromium
 
