@@ -1,9 +1,9 @@
 /**
- * A search function to query for page discussions.
+ * Search function to query a webpage URL.
  *
- * @param {string} url - The page url to query.
- * @param {object} session - The source session.
- * @return {object} { `results`, `hits`, `hasNext`, and `session` }
+ * @param {string} url - The webpage URL.
+ * @param {object} session - A previous session.
+ * @return {object} The search result.
  */
 async function handleSearch(url, session) {
   const results = [];
@@ -49,7 +49,7 @@ async function handleSearch(url, session) {
   };
 
   const { items } = response;
-  // Loop through a response, creating 'results'
+  // Loop through a response, creating 'Results'
   for (let idx = 0; idx < items.length; idx += 1) {
     const result = items[idx];
     results.push({
@@ -83,6 +83,6 @@ async function handleSearch(url, session) {
 }
 
 export default {
-  name: "Sample",
+  name: "Sample Site",
   handleSearch,
 };

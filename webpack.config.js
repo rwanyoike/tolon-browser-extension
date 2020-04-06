@@ -78,15 +78,7 @@ let config = {
     new OptimizeCssAssetsPlugin({}),
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      // Ref: https://github.com/jantimon/html-webpack-plugin/issues/1094
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      },
+      scriptLoading: "defer",
     }),
     new HtmlWebpackDeployPlugin({
       packages: external,
