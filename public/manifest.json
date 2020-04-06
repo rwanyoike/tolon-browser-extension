@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Tolon",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Find page related website discussions. On Hacker News and Reddit.",
   "homepage_url": "https://github.com/rwanyoike/tolon",
   "icons": {
