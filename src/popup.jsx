@@ -23,7 +23,7 @@ const DEFAULT_OPTIONS = { darkMode: false };
     if (tabs.length && urlPattern.test(tabs[0].url)) {
       const { host, pathname, search } = new URL(tabs[0].url);
       // Don't include the URL scheme or hash. They filter-out results. This
-      // will break hash-navigated webpage results.
+      // will also affect hash-navigated webpage results.
       query = `${host}${pathname}${search}`;
     } else {
       query = null;
