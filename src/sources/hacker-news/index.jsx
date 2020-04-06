@@ -9,6 +9,7 @@ const SEARCH_URL = "https://hn.algolia.com";
 async function handleSearch(url, session) {
   const results = [];
 
+  // Ref: https://hn.algolia.com/api
   const searchParams = new URLSearchParams();
   searchParams.set("query", `"${url}"`);
   searchParams.set("hitsPerPage", 20);
