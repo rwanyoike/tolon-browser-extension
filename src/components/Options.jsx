@@ -25,31 +25,15 @@ const Options = (props) => {
       <hr />
       <div className="setting">
         <span>
-          Icon by{" "}
-          <a
-            href="https://thenounproject.com/asierbilbo"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Asier Bilbo
-          </a>{" "}
-          from{" "}
-          <a
-            href="https://thenounproject.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            The Noun Project
-          </a>
+          {browser.runtime.getManifest().name} v
+          {browser.runtime.getManifest().version}
         </span>
-      </div>
-      <div className="setting">
         <a
-          href="https://github.com/rwanyoike/tolon"
+          href={browser.runtime.getManifest().homepage_url}
           rel="noopener noreferrer"
           target="_blank"
         >
-          Source Code
+          Source Code (MIT)
         </a>
       </div>
     </>
