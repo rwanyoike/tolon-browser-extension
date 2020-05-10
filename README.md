@@ -1,7 +1,7 @@
-# Tolon (토론) Browser Extension
+# Tolon Browser Extension
 
-[![Travis (.org)](https://img.shields.io/travis/rwanyoike/tolon)](https://travis-ci.org/rwanyoike/tolon)
-[![GitHub](https://img.shields.io/github/license/rwanyoike/tolon)](LICENSE)
+[![Travis (.org)](https://img.shields.io/travis/rwanyoike/tolon-browser-extension)](https://travis-ci.org/rwanyoike/tolon-browser-extension)
+[![GitHub](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)](LICENSE)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
 [![Mozilla Add-on](https://img.shields.io/amo/v/tolon)](https://addons.mozilla.org/en-US/firefox/addon/tolon/)
 [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
