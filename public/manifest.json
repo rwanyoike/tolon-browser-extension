@@ -1,18 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "Tolon",
-  "version": "0.5.0",
-  "description": "Find webpage discussions on Hacker News and Reddit.",
+  "manifest_version": 3,
+  "name": "Tolon Browser Extension",
+  "version": "0.6.0",
+  "description": "Find webpage discussions on the web.",
   "homepage_url": "https://github.com/rwanyoike/tolon-browser-extension",
   "icons": {
     "64": "images/icon.png",
     "128": "images/icon@2x.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "index.html"
   },
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ]
 }
