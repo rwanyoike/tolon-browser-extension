@@ -1,14 +1,13 @@
 # Tolon Browser Extension
 
-[![Travis (.org)](https://img.shields.io/travis/rwanyoike/tolon-browser-extension)](https://travis-ci.org/rwanyoike/tolon-browser-extension)
 [![GitHub](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)](LICENSE)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
 [![Mozilla Add-on](https://img.shields.io/amo/v/tolon)](https://addons.mozilla.org/en-US/firefox/addon/tolon/)
 [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> Find webpage discussions on Hacker News and Reddit.
+> Find webpage discussions on the web. (e.g. Hacker News, Reddit)
 
-Tolon is a browser extension that helps you find discussions around the pages you're looking at on the web. It works by searching [available sources](#usage) for URL submissions.
+Tolon (토론) is a browser extension that helps you find discussions around the pages you're looking at on the web. It works by searching [available sources](#usage) for URL submissions.
 
 [Installation](#installation) | [Usage](#usage) | [Attribution](#attribution) | [Contributing](#contributing) | [License](#license) | [Similar Extensions](#similar-extensions)
 
@@ -53,10 +52,9 @@ You can install the latest version from the [Firefox Add-ons](https://addons.moz
 ### npm Build
 
 ```shell
-git clone https://github.com/rwanyoike/tolon
-cd tolon
+git clone git@github.com:rwanyoike/tolon-browser-extension.git
+cd tolon-browser-extension
 npm install
-echo NODE_ENV=production | tee .env
 npm run build
 ```
 
@@ -68,9 +66,9 @@ While viewing a webpage, opening the extension will search available sources for
 
 Available sources:
 
-- [Hacker News](https://news.ycombinator.com/) (social news)
-- [Reddit](https://www.reddit.com/) (social news)
-- [Sample Site](src/sources/sample-site/index.jsx) (template)
+- [Hacker News](https://news.ycombinator.com/)
+- [Reddit](https://www.reddit.com/)
+- [Sample Site](src/sources/sample-site/index.ts) (template)
 
 ## Attribution
 
