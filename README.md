@@ -1,9 +1,11 @@
 # Tolon Browser Extension
 
-[![GitHub](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)](LICENSE)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/rwanyoike/tolon-browser-extension/nodejs-package.yml?branch=main)
+](https://github.com/rwanyoike/tolon-browser-extension/actions/workflows/python-package.yml?query=branch%3Amain)
+[![GitHub License](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)
+](LICENSE.txt)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
-[![Mozilla Add-on](https://img.shields.io/amo/v/tolon)](https://addons.mozilla.org/en-US/firefox/addon/tolon/)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Mozilla Add-on](https://img.shields.io/amo/v/tolon-browser-extension)](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension)
 
 > Find webpage discussions on the web. (e.g. Hacker News, Reddit)
 
@@ -45,7 +47,7 @@ You can install the latest version [manually](https://github.com/rwanyoike/tolon
 
 ### Firefox
 
-[![Mozilla Add-on](https://img.shields.io/amo/v/tolon)](https://addons.mozilla.org/en-US/firefox/addon/tolon/)
+[![Mozilla Add-on](https://img.shields.io/amo/v/tolon-browser-extension)](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension/)
 
 You can install the latest version from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tolon/) web site.
 
