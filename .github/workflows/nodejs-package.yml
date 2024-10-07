@@ -1,5 +1,4 @@
----
-name: NodeJS package
+name: "NodeJS package"
 
 on:
   push:
@@ -9,20 +8,20 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout ${{ github.repository }}
-        uses: actions/checkout@v4
-      - name: Set up NodeJS lts/*
-        uses: actions/setup-node@v4
+      - name: "Checkout ${{ github.repository }}"
+        uses: "actions/checkout@v4"
+      - name: "Set up NodeJS lts/*"
+        uses: "actions/setup-node@v4"
         with:
-          node-version: lts/*
-          cache: npm
-      - name: Install dependencies
-        run: npm install
-      - name: Run eslint checks
-        run: npm run lint
-      - name: Test with vitest
-        run: npm run test -- --coverage
-      - name: Build with vite
-        run: npm run build
+          node-version: "lts/*"
+          cache: "npm"
+      - name: "Install dependencies"
+        run: "npm install"
+      - name: "Run eslint checks"
+        run: "npm run lint"
+      - name: "Test with vitest"
+        run: "npm run test -- --coverage"
+      - name: "Build with vite"
+        run: "npm run build"
