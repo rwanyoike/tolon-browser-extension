@@ -1,7 +1,7 @@
 # Tolon Browser Extension
 
 [![GitHub Actions](https://img.shields.io/github/actions/workflow/status/rwanyoike/tolon-browser-extension/nodejs-package.yml?branch=main)
-](https://github.com/rwanyoike/tolon-browser-extension/actions/workflows/python-package.yml?query=branch%3Amain)
+](https://github.com/rwanyoike/tolon-browser-extension/actions/workflows/nodejs-package.yml?query=branch%3Amain)
 [![GitHub License](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)
 ](LICENSE.txt)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
