@@ -13,18 +13,17 @@ Tolon (토론) is a browser extension that helps you find discussions around the
 
 [Installation](#installation) | [Usage](#usage) | [Attribution](#attribution) | [Contributing](#contributing) | [License](#license) | [Similar Extensions](#similar-extensions)
 
-| ![_](https://i.imgur.com/syASQfx.png) | ![_](https://i.imgur.com/06lpJWv.png) |
+| ![_](assets/syASQfx.png) | ![_](assets/06lpJWv.png) |
 | ------------------------------------- | ------------------------------------- |
-| ![_](https://i.imgur.com/y0Z85pE.png) | ![_](https://i.imgur.com/vNioIDh.png) |
+| ![_](assets/y0Z85pE.png) | ![_](assets/vNioIDh.png) |
 
 ## Installation
 
-These are the extension's permissions:
+These are the extension's [permissions](public/manifest.json):
 
 ```json
 "permissions": [
-  "activeTab",
-  "storage"
+  "activeTab"
 ]
 ```
 
@@ -35,26 +34,22 @@ This is necessary to be able to:
 - Find out which tab is currently active.
 - Query the webpage URL.
 
-**storage**:
-
-- Used to persist the extension settings.
-
 ### Chromium
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
 
-You can install the latest version [manually](https://github.com/rwanyoike/tolon/releases), or from the [Chrome Web Store](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk). It's expected that the extension is compatible with any Chromium-based browsers.
+You can install the latest version from the [Chrome Web Store](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk). It's expected that the extension is compatible with any Chromium-based browsers.
 
 ### Firefox
 
-[![Mozilla Add-on](https://img.shields.io/amo/v/tolon-browser-extension)](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension/)
+[![Mozilla Add-on](https://img.shields.io/amo/v/tolon-browser-extension)](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension)
 
-You can install the latest version from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tolon/) web site.
+You can install the latest version from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension) web site.
 
 ### npm Build
 
 ```shell
-git clone git@github.com:rwanyoike/tolon-browser-extension.git
+git clone https://github.com/rwanyoike/tolon-browser-extension.git
 cd tolon-browser-extension
 npm install
 npm run build
@@ -68,13 +63,13 @@ While viewing a webpage, opening the extension will search available sources for
 
 Available sources:
 
-- [Hacker News](https://news.ycombinator.com/)
-- [Reddit](https://www.reddit.com/)
+- [Hacker News](https://news.ycombinator.com)
+- [Reddit](https://www.reddit.com)
 - [Sample Site](src/sources/sample-site/index.ts) (template)
 
 ## Attribution
 
-- Icon by [Asier Bilbo](https://thenounproject.com/asierbilbo) from [Noun Project](https://thenounproject.com).
+- Icon by [Asier Bilbo](https://thenounproject.com/creator/asierbilbo) from Noun Project.
 
 ## Contributing
 
@@ -82,9 +77,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+This project is licensed under the [MIT License](./LICENSE.txt).
 
-## Similar Extensions
+## Related Projects
 
 - [Discussed Elsewhere](https://github.com/jsuar/discussed-elsewhere)
 - [Newsit](https://github.com/benwinding/newsit)
