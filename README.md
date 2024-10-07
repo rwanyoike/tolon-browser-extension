@@ -1,7 +1,7 @@
 # Tolon Browser Extension
 
 [![GitHub Actions](https://img.shields.io/github/actions/workflow/status/rwanyoike/tolon-browser-extension/nodejs-package.yml?branch=main)
-](https://github.com/rwanyoike/tolon-browser-extension/actions/workflows/python-package.yml?query=branch%3Amain)
+](https://github.com/rwanyoike/tolon-browser-extension/actions/workflows/nodejs-package.yml?query=branch%3Amain)
 [![GitHub License](https://img.shields.io/github/license/rwanyoike/tolon-browser-extension)
 ](LICENSE.txt)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mohaijbbfgjjjjbhffgaifcnookdihmk)](https://chrome.google.com/webstore/detail/tolon/mohaijbbfgjjjjbhffgaifcnookdihmk)
@@ -46,17 +46,6 @@ You can install the latest version from the [Chrome Web Store](https://chrome.go
 
 You can install the latest version from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tolon-browser-extension) web site.
 
-### npm Build
-
-```shell
-git clone https://github.com/rwanyoike/tolon-browser-extension.git
-cd tolon-browser-extension
-npm install
-npm run build
-```
-
-Find the compiled browser extension under `dist/`.
-
 ## Usage
 
 While viewing a webpage, opening the extension will search available sources for URL submissions (discussion threads) and present a list of results.
@@ -67,17 +56,26 @@ Available sources:
 - [Reddit](https://www.reddit.com)
 - [Sample Site](src/sources/sample-site/index.ts) (template)
 
+## Build
+
+To build the browser extension:
+
+```shell
+# Clone the repository
+git clone https://github.com/rwanyoike/tolon-browser-extension.git
+# Navigate to the project directory
+cd tolon-browser-extension
+# Install the dependencies
+npm install
+# Build the browser extension
+npm run build
+```
+
+Find the browser extension under `dist/`.
+
 ## Attribution
 
 - Icon by [Asier Bilbo](https://thenounproject.com/creator/asierbilbo) from Noun Project.
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the [MIT License](./LICENSE.txt).
 
 ## Related Projects
 
