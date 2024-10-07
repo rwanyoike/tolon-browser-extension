@@ -1,5 +1,6 @@
 .cache/
 coverage/
+dist-zip/
 dist/
 node_modules/
 
